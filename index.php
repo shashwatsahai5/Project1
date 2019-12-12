@@ -1,12 +1,57 @@
 <?php
 
-$link = mysqli_connect("localhost", "root", "",'newproject');//server, username, password, database
-if (mysqli_connect_error())
-    {
-        echo "<br>Error in connection";
-    }
-   
 
+
+// Connect to MySQL
+$link1 = mysqli_connect('localhost', 'root', '');
+if (!$link1) {
+    die('Could not connect: ' . mysqli_error());
+}
+
+  // If we couldn't, then it either doesn't exist, or we can't see it.
+  $sql = 'CREATE DATABASE if not exists newproject';
+
+  if (mysqli_query($link1,$sql)) {
+  } else {
+      echo 'Error creating database: ' . mysqli_error() . "\n";
+  }
+
+
+$use="use newproject";
+
+if(mysqli_query($link1,$use)){
+	//echo "used";
+}else{
+      echo "Error using db".mysqli_error($link1);
+}
+$table = "CREATE TABLE if not exists users (
+  id int(5) NOT NULL,
+  name varchar(50) NOT NULL,
+  email varchar(50) NOT NULL,
+  phno varchar(20) NOT NULL,
+  sex varchar(20) NOT NULL,
+  address varchar(50) NOT NULL,
+  password varchar(50) NOT NULL,
+  hash varchar(50) NOT NULL,
+  active tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+
+if(mysqli_query($link1,$table)){
+	//echo "created";
+}else{
+      echo "Error in creating table";
+}
+$value="INSERT INTO `users` (`id`, `name`, `email`, `phno`, `sex`, `address`, `password`, `hash`, `active`) VALUES
+(1, 'shashwat sahai', 'shashwat@gmail.com', '817836513', 'M', '123 delhi 6', 'RiseShine123', '8369216ebc93d48096789e444bac386a', 1),
+(2, 'abc', 'abc@gmail.com', '9899272102', 'M', 'Vellore, India', '123Abcde', '18bd56017275d1d3aad29b30dc559265', 1),
+(3, 'sharad', 'sharad@gmail.com', '9999887744', 'Male', 'gurgaon, haryana', 'Mahesh%567', '7939a186137a882ce40165f6e48bf283', 0),
+(4, 'maunil nakarani', 'shashwatsahai5@gmail.com', '8178365138', 'Male', 'Vadodara, Gujrat', 'Shashwat@123', '7939a186137a882ce40165f6e48bf283', 0);";
+
+if(mysqli_query($link1,$value)){
+	//echo "insterted";
+}else{
+      echo "Error in serting";
+}
 if (array_key_exists('useremail', $_POST) OR array_key_exists('pass', $_POST)){
     
 
