@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2019 at 01:20 PM
+-- Generation Time: Dec 12, 2019 at 03:40 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -45,9 +45,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `phno`, `sex`, `address`, `password`, `hash`, `active`) VALUES
-(1, 'shashwat sahai', 'shashwat@gmail.com', '817836513', 'M', '123 delhi 6', '12345', '', 1),
-(2, 'abc', 'abc@gmail.com', '9899272102', 'M', 'Vellore, India', '123456', '', 1),
-(3, 'sharad', 'sharad@gmail.com', '9999887744', 'Male', 'gurgaon, haryana', 'Shashwat@123', '7939a186137a882ce40165f6e48bf283', 0),
+(1, 'shashwat sahai', 'shashwat@gmail.com', '817836513', 'M', '123 delhi 6', 'RiseShine123', '8369216ebc93d48096789e444bac386a', 1),
+(2, 'abc', 'abc@gmail.com', '9899272102', 'M', 'Vellore, India', '123Abcde', '18bd56017275d1d3aad29b30dc559265', 1),
+(3, 'sharad', 'sharad@gmail.com', '9999887744', 'Male', 'gurgaon, haryana', 'Mahesh%567', '7939a186137a882ce40165f6e48bf283', 0),
 (4, 'maunil nakarani', 'shashwatsahai5@gmail.com', '8178365138', 'Male', 'Vadodara, Gujrat', 'Shashwat@123', '7939a186137a882ce40165f6e48bf283', 0);
 
 --
