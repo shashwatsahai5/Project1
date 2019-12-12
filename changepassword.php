@@ -49,37 +49,46 @@
           Password Recovery
         </div>
         <div class="card-body">
-          <form method="post">
+          <form method="GET">
 			  <div class="form-group">
     
-    			<input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter Recovery Email id">
+    			<input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter Email id">
     
   			  </div>
 			  
 			  <div class="form-group">
     
-    			<input type="number" class="form-control" id="examplephone" aria-describedby="emailHelp" placeholder="Enter Phone number">
+    			<input type="number" class="form-control" id="examplephone" aria-describedby="emailHelp" name="pno" placeholder="Enter Phone number">
     
   			  </div>
-			  
-            
           
         <hr>
-		  
-		  
-		  	<button type="submit" class="btn btn-default btn-block" formmethod="post">Send OTP</button>
+		  		  
+		  	<button type="submit" class="btn btn-default btn-block">Send OTP</button>
 		  </form>
+			
+			<?php
+			session_start();
+			if(array_key_exists("email",$_GET)){
+			$_SESSION['email'] = $_GET['email'];
+			$_SESSION['phone'] = $_GET['pno'];}
+			//echo $email;
+			?>
+			
+			
+			
 		</div>
 		  
 		<div class="card-footer">
-			<form class="form-inline" action="reset.php">
+			<form class="form-inline" method="get" action="reset.php">
 			  
 			  <div class="form-group mx-sm-3 mb-2">
 				
-				<input type="text" class="form-control" id="inpotp" placeholder="Enter OTP">
+				<input type="text" name="inpotp" class="form-control" placeholder="Enter OTP">
 			  </div>
 			  <button type="submit" class="btn btn-primary mb-2">Confirm</button>
 			</form> 
+			
 		</div>
 
 		  
@@ -106,17 +115,13 @@ password change
 home page
 email verification
 input validation
-
 <?php
-//generate OTP
-//send through mail
-//if matches, open password change form
-//if not, echo otp not match send again
-//echo "Enter the 6 digit OTP: ";
-
-
+if(array_key_exists("email",$_GET)){
+$_SESSION['otp'] = $_GET['inpotp'];
+}
 
 ?>
+
 
 
 
